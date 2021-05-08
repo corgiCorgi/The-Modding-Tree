@@ -82,7 +82,7 @@ addLayer("p", {
     prestigeButtonText(){
         if (player.tab != "p") return ""
         let a;
-        a = "Reset for "+ tmp["p"].resetGain + " prestige points"
+        a = "Reset for "+ formatWhole(tmp["p"].resetGain) + " prestige points"
         return a
     },
     buyables: {
