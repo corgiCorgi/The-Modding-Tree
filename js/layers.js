@@ -202,8 +202,8 @@ addLayer("b", {
 
         13:{
             description:"Unlock a new Layer",
-            cost: new Decimal(9),
-            unlocked(){return hasUpgrade("b", 12)},
+            cost: new Decimal(6),
+            unlocked(){return hasUpgrade("b", 12)&&player.b.best.gte(new Decimal(9))},
         }
 
 
