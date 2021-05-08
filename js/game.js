@@ -63,7 +63,7 @@ function getNextAt(layer, canMax=false, useType = null) {
 		next = next.root(tmp[layer].gainExp).div(tmp[layer].gainMult).root(tmp[layer].exponent).times(tmp[layer].requires).max(tmp[layer].requires)
 		if (tmp[layer].roundUpCost) next = next.ceil()
 		return next;
-	} else if (type=="custom"){
+	} else if (type=="custom" && layers[layer].getNextAt != undefined){
 		return layers[layer].getNextAt(canMax)
 	} else {
 		return new Decimal(0)
