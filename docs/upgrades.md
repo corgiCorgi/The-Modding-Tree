@@ -12,8 +12,6 @@ Upgrades are stored in the following format:
 
 ```js
 upgrades: {
-    rows: # of rows,
-    cols: # of columns,
     11: {
         description: "Blah",
         cost: new Decimal(100),
@@ -23,7 +21,7 @@ upgrades: {
 }
 ```
 
-Each upgrade should have an id where the first digit is the row and the second digit is the column.
+Usually, upgrades should have an id where the first digit is the row and the second digit is the column.
 
 Individual upgrades can have these features:
 

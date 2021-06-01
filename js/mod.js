@@ -1,11 +1,11 @@
 let modInfo = {
-	name: "The Corgi Tree",
-	id: "13131369131313",
-	author: "TheKillerCorgi",
+	name: "The ??? Tree",
+	id: "mymod",
+	author: "nobody",
 	pointsName: "points",
 	discordName: "",
 	discordLink: "",
-	initialStartPoints: new Decimal (1), // Used for hard resets and new players
+	initialStartPoints: new Decimal (10), // Used for hard resets and new players
 	
 	offlineLimit: 1,  // In hours
 }
@@ -13,12 +13,13 @@ let modInfo = {
 // Set your version in num and name
 let VERSION = {
 	num: "0.0",
-	name: "The First Update!",
+	name: "Literally nothing",
 }
 
 let changelog = `<h1>Changelog:</h1><br>
 	<h3>v0.0</h3><br>
-		- Added first three layers.`
+		- Added things.<br>
+		- Added stuff.`
 
 let winText = `Congratulations! You have reached the end and beaten this game, but for now...`
 
@@ -36,21 +37,25 @@ function canGenPoints(){
 }
 
 // Calculate points/sec!
+function getPointGen() {
+	if(!canGenPoints())
+		return new Decimal(0)
 
+	let gain = new Decimal(1)
+	return gain
+}
 
 // You can add non-layer related variables that should to into "player" and be saved here, along with default values
 function addedPlayerData() { return {
 }}
 
 // Display extra things at the top of the page
-var displayThings = [function(){
-	return "Points are capped at " + format(SecondCap(),2) + " seconds worth of production."
-},
+var displayThings = [
 ]
 
 // Determines when the game "ends"
 function isEndgame() {
-	return player.q.points.gte(new Decimal(2))
+	return player.points.gte(new Decimal("e280000000"))
 }
 
 
@@ -66,24 +71,3 @@ function maxTickLength() {
 // you can cap their current resources with this.
 function fixOldSave(oldVersion){
 }
-
-//var controlDown = false
-var shiftDown = false
-
-window.addEventListener('keydown', function(event) {
-	if (player.toggleKeys) {
-		if (event.keyCode == 16) shiftDown = !shiftDown;
-//		if (event.keyCode == 17) controlDown = !controlDown;
-	} else {
-		if (event.keyCode == 16) shiftDown = true;
-//		if (event.keyCode == 17) controlDown = true;
-	}
-}, false);
-
-window.addEventListener('keyup', function(event) {
-	if (player.toggleKeys) return 
-	if (event.keyCode == 16) shiftDown = false;
-//	if (event.keyCode == 17) controlDown = false;
-}, false);
-
-
